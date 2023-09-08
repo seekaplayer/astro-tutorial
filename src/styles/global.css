@@ -4,13 +4,15 @@ html {
 }
 
 body {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 80ch;
-  padding: 1rem;
+  margin: 0;
+  padding: 0rem;
   line-height: 1.5;
 }
 
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
 * {
   box-sizing: border-box;
 }
@@ -77,4 +79,11 @@ h1 {
   .hamburger {
     display: none;
   }
+}
+@media screen and (max-width: 1200px) {
+  .container {
+    padding: 0 1em;
+  }
+}
+  
 }
