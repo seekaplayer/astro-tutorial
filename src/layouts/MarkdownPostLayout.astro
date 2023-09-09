@@ -4,6 +4,7 @@
 ---
 <BaseLayout>
   <header class="hero-image">
+    <a href="/blog">← Back</a>
     {frontmatter.image && <img src={frontmatter.image.url} alt={frontmatter.image.alt} />}
   </header>
   <h1>{frontmatter.title}</h1>
@@ -12,6 +13,11 @@
   <hr />
   <p>Written By: {frontmatter.author}</p>
   <p>Published on: {frontmatter.pubDate.slice(0,10)}</p>
+  <div class="tags">
+    {frontmatter.tags.map((tag) => (
+      <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
+    ))}
+  </div>
   <slot />
 </BaseLayout>
 <style>
@@ -19,5 +25,25 @@
     max-width: 100%;
     background-position: center center;
     background-size: cover;
+  }
+  a {
+    color: #00539F;
+  }
+  .tags {
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+  .tag {
+    margin: 0.25em;
+    border: dotted 1px #a1a1a1;
+    border-radius: .5em;
+    padding: .5em 1em;
+    font-size: 1.15em;
+    background-color: #F8FCFD;
+  }
+
+  @media screen and (max-width: 1200px) {
+    .tags {
+      grid-template-columns: repeat(2, auto);
   }
 </style>
